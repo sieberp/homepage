@@ -1,0 +1,49 @@
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
+
+import Bundesheer from '../../assets/bundesheer.svg';
+
+const Container = styled.footer`
+  position: absolute;
+  bottom: 0px;
+  background-color: ${props => props.theme.main_color};
+  color: ${props => props.theme.white};
+  width: calc(100vw - 20px);
+  padding: 10px;
+  height: 4.8rem;
+  font-size: 1.8rem;
+`;
+
+const Inner = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  background: ${props => props.theme.main_color};
+`;
+
+const NavLink = styled(Link)`
+  color: ${props => props.theme.white};
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: right;
+`;
+
+const BhLogo = styled(Bundesheer)`
+  width: 48px;
+  height: 48px;
+`;
+
+const Footer = () => (
+  <Container>
+    <Inner>
+      Supported by{' '}
+      <a href="http://www.bundesheer.at/">
+        <BhLogo />
+      </a>
+      <NavLink to="impressum">Impressum</NavLink>
+    </Inner>
+  </Container>
+);
+
+export default Footer;
