@@ -1,25 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   version="1.1"
-   id="svg2"
-   xml:space="preserve"
    width="249.45332"
    height="288.04001"
-   viewBox="0 0 249.45332 288.04001"
-   sodipodi:docname="Logo_OEBH_UNSER_HEER_Farbe_Neg.svg"
-   inkscape:export-filename="/home/webteam/tmp/cd_2017/Logo_OEBH_UNSER_HEER_Farbe_Neg.png"
-   inkscape:export-xdpi="319.06622"
-   inkscape:export-ydpi="319.06622"
-   inkscape:version="0.92+devel unknown"><metadata
+   viewBox="0 0 249.45332 288.04001"><metadata
      id="metadata8"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -27,31 +9,11 @@
        clipPathUnits="userSpaceOnUse"
        id="clipPath20"><path
          d="M 215.422,540.082 H 1655.46 V 1980.13 H 215.422 Z"
-         id="path18"
-         inkscape:connector-curvature="0" /></clipPath></defs><sodipodi:namedview
+         id="path18"/></clipPath></defs><sodipodi:namedview
      pagecolor="#ffffff"
      bordercolor="#666666"
-     inkscape:document-rotation="0"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1280"
-     inkscape:window-height="965"
-     id="namedview4"
-     showgrid="false"
-     inkscape:zoom="2.7669767"
-     inkscape:cx="16.847185"
-     inkscape:cy="144.02"
-     inkscape:window-x="1280"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g10" /><g
+      /><g
      id="g10"
-     inkscape:groupmode="layer"
-     inkscape:label="ink_ext_XXXXXX"
      transform="matrix(1.3333333,0,0,-1.3333333,0,288.04)"><g
        id="g12"
        transform="scale(0.1)"><g
@@ -60,8 +22,7 @@
            clip-path="url(#clipPath20)"><path
              d="m 1655.45,1260.1 c 0,-397.659 -322.35,-720.01 -720.016,-720.01 -397.661,0 -720.02,322.351 -720.02,720.01 0,397.66 322.359,720.02 720.02,720.02 397.666,0 720.016,-322.36 720.016,-720.02"
              style="fill:#ed1c24;fill-opacity:1;fill-rule:evenodd;stroke:none"
-             id="path22"
-             inkscape:connector-curvature="0" /></g></g><path
+             id="path22"/></g></g><path
          d="M 311.813,1620.24 935.434,540.102 1559.05,1620.24 Z"
          style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path24"

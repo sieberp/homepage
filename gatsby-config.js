@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Paul Sieber | Rower and Webdeveloper`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Paul Sieber is an Olympic Rower and Web Developer.`,
     author: `@gatsbyjs`,
     main_color: `#3991AC`,
   },
@@ -17,6 +17,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-plugin-page-transitions',
+      options: {
+        transitionTime: 500,
+      },
+    },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {

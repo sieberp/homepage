@@ -13,7 +13,7 @@ const Inner = styled.div`
   max-width: 960px;
   padding: 1.45rem 1.0875rem;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr max-content max-content;
   align-items: center;
 `;
 
@@ -21,15 +21,28 @@ const NavLink = styled(Link)`
   text-align: right;
   text-decoration: none;
   color: ${props => props.theme.black};
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bolder;
+  margin: 10px;
+  @media (min-width: 699px) {
+    font-size: 1.8rem;
+  }
+`;
+
+const LogoStyle = styled(Logo)`
+  width: 100px;
+  height: 45px;
+  @media (min-width: 699px) {
+    width: 150px;
+    height: 68px;
+  }
 `;
 
 const Header = ({ siteTitle }) => (
   <Container>
     <Inner>
       <Link to="/">
-        <Logo />
+        <LogoStyle />
       </Link>
       <NavLink to="/web">Web</NavLink>
       <NavLink to="/rowing">Rowing</NavLink>

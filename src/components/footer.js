@@ -12,14 +12,16 @@ const Container = styled.footer`
   width: calc(100vw - 20px);
   padding: 10px;
   height: 4.8rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 `;
 
 const Inner = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   background: ${props => props.theme.main_color};
+  max-width: 960px;
+  margin: 0 auto;
 `;
 
 const NavLink = styled(Link)`
@@ -27,6 +29,12 @@ const NavLink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
   text-align: right;
+`;
+
+const Support = styled.div`
+  display: grid;
+  align-items: center;
+  grid-template-columns: max-content auto;
 `;
 
 const BhLogo = styled(Bundesheer)`
@@ -37,11 +45,13 @@ const BhLogo = styled(Bundesheer)`
 const Footer = () => (
   <Container>
     <Inner>
-      Supported by{' '}
-      <a href="http://www.bundesheer.at/">
-        <BhLogo />
-      </a>
-      <NavLink to="impressum">Impressum</NavLink>
+      <Support>
+        Supported by{' '}
+        <a href="http://www.bundesheer.at/" target="_blank" rel="noopener noreferrer">
+          <BhLogo />
+        </a>
+      </Support>
+      <NavLink to="/impressum">Impressum</NavLink>
     </Inner>
   </Container>
 );
