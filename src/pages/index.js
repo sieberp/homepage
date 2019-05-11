@@ -1,33 +1,14 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import PageTransition from 'gatsby-plugin-page-transitions';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Hello from '../../assets/hello.svg';
-
-const Text = styled.section`
-  font-size: 1.4rem;
-`;
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-`;
-
-const Highlight = styled.span`
-  color: ${props => props.theme.main_color};
-`;
-
-const StyledLink = styled(Link)`
-  color: ${props => props.theme.main_color};
-  text-decoration: none;
-  cursor: pointer;
-  :hover {
-    color: ${props => props.theme.main_color_dark};
-  }
-`;
+import Text from '../components/styles/text';
+import Grid from '../components/styles/grid';
+import Highlight from '../components/styles/highlight';
+import StyledLink from '../components/styles/styledLink';
 
 const HelloSvg = styled(Hello)`
   transform: rotateY(180deg);

@@ -5,6 +5,8 @@ import PageTransition from 'gatsby-plugin-page-transitions';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Developer from '../../assets/developer.svg';
+import Text from '../components/styles/text';
+import Grid from '../components/styles/grid';
 
 const DeveloperStyle = styled(Developer)`
   width: 96px;
@@ -20,7 +22,6 @@ const DeveloperStyle = styled(Developer)`
 const Triangle = styled.div`
   position: absolute;
   top: 100px;
-  left: -20px;
   width: 300px;
   height: 300px;
   background: ${props => props.theme.main_color};
@@ -32,9 +33,16 @@ const WebPage = () => (
   <Layout>
     <SEO title="Web" keywords={[`gatsby`, `application`, `react`]} />
     <PageTransition>
-      <h1>This is the web page</h1>
-      <DeveloperStyle />
-      <Triangle />
+      <Text>
+        <Grid>
+          <p>
+            This page was build with GatsbyJS. It is a static site generator
+            that produces blazing fast web sites.
+          </p>
+          <DeveloperStyle />
+          <Triangle />
+        </Grid>
+      </Text>
     </PageTransition>
   </Layout>
 );
