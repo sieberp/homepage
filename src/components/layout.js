@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
@@ -13,6 +6,7 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Header from './header';
 import Footer from './footer';
 import theme from './styles/theme';
+import Transtion from './transition';
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -31,9 +25,10 @@ const MainContent = styled.div`
   max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;
   padding-top: 0;
+  margin-bottom: 4.8rem;
 `;
 
-const Layout = ({ children }) => (
+const Layout = ({ children, location }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -46,12 +41,14 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <ThemeProvider theme={theme}>
-        <div>
+        <>
           <GlobalStyle />
-          <Header siteTitle={data.site.siteMetadata.title} />
-          <MainContent>{children}</MainContent>
+          <Header />
+          <Transtion location={location}>
+            <MainContent>{children}</MainContent>
+          </Transtion>
           <Footer />
-        </div>
+        </>
       </ThemeProvider>
     )}
   />

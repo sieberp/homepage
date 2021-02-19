@@ -5,10 +5,10 @@ import styled from 'styled-components';
 import Bundesheer from '../../assets/bundesheer.svg';
 
 const Container = styled.footer`
-  position: absolute;
+  position: fixed;
   bottom: 0px;
-  background-color: ${props => props.theme.main_color};
-  color: ${props => props.theme.white};
+  background-color: #C1DBE3;
+  color: ${props => props.theme.black};
   width: calc(100vw - 20px);
   padding: 10px;
   height: 4.8rem;
@@ -19,13 +19,12 @@ const Inner = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  background: ${props => props.theme.main_color};
   max-width: 960px;
   margin: 0 auto;
 `;
 
 const NavLink = styled(Link)`
-  color: ${props => props.theme.white};
+  color: ${props => props.theme.black};
   text-decoration: none;
   font-size: 1rem;
   text-align: right;

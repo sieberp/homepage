@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import PageTransition from 'gatsby-plugin-page-transitions';
 
-import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Developer from '../../assets/developer.svg';
+import Wave from '../../assets/wave3.svg';
 import Text from '../components/styles/text';
 import Grid from '../components/styles/grid';
+import ContactButton from '../components/contactButton';
 
 const DeveloperStyle = styled(Developer)`
   width: 96px;
@@ -19,32 +19,32 @@ const DeveloperStyle = styled(Developer)`
   }
 `;
 
-const Triangle = styled.div`
-  position: absolute;
-  top: 100px;
-  width: 300px;
-  height: 300px;
-  background: ${props => props.theme.main_color};
+const WaveSvg = styled(Wave)`
+  position: fixed;
+  bottom: 6.8rem;
+  left: 0;
   opacity: 0.3;
-  clip-path: polygon(65% 100%, 13% 0, 100% 35%);
+  width: 100vw;
+  z-index: -1;
 `;
 
 const WebPage = () => (
-  <Layout>
-    <SEO title="Web" keywords={[`gatsby`, `application`, `react`]} />
-    <PageTransition>
-      <Text>
-        <Grid>
-          <p>
-            This page was build with GatsbyJS. It is a static site generator
-            that produces blazing fast web sites.
-          </p>
+  <>
+    <SEO
+      title="Web"
+      keywords={[`webdev`, `application`, `react`, `webdevelopment`]}
+    />
+    <Text>
+      <Grid>
+        <p>This is the web dev page</p>
+        <div style={{ textAlign: 'center' }}>
           <DeveloperStyle />
-          <Triangle />
-        </Grid>
-      </Text>
-    </PageTransition>
-  </Layout>
+          <ContactButton />
+        </div>
+      </Grid>
+    </Text>
+    <WaveSvg />
+  </>
 );
 
 export default WebPage;
