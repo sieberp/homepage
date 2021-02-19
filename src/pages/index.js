@@ -30,6 +30,11 @@ const WaveSvg = styled(Wave)`
   z-index: -1;
 `;
 
+const Heading = styled.h2`
+  font-size: 2.5rem;
+  padding: 0 1rem;
+`;
+
 const IndexPage = () => {
   return (
     <>
@@ -37,14 +42,13 @@ const IndexPage = () => {
         title="Home"
         keywords={[`rowing`, `webdevelopment`, `paul sieber`]}
       />
+      <Heading>
+        Paul Sieber. <br />
+        <StyledLink to="/rowing">Olympic rower</StyledLink> and{' '}
+        <StyledLink to="/web">webdeveloper</StyledLink>.
+      </Heading>
+      <Image />
       <Text>
-        <h2>
-          Hello my name is Paul Sieber. I’m an{' '}
-          <Highlight>olympic rower</Highlight> and{' '}
-          <Highlight>webdeveloper.</Highlight>
-        </h2>
-        <Image />
-
         <p>
           On the water I celebrated U-23-Worldchamp title and a 12th place at
           the Olympic Games in Rio. You can find out more about me as a rower on

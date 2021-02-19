@@ -35,13 +35,7 @@ const WebPage = () => (
       keywords={[`webdev`, `application`, `react`, `webdevelopment`]}
     />
     <Text>
-      <Grid>
-        <p>This is the web dev page</p>
-        <div style={{ textAlign: 'center' }}>
-          <DeveloperStyle />
-          <ContactButton />
-        </div>
-      </Grid>
+      <p>This is the web dev page</p>
     </Text>
     <WaveSvg />
   </>

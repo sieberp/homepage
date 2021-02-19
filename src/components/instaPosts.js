@@ -3,7 +3,16 @@ import styled from 'styled-components';
 import { StaticQuery } from 'gatsby';
 
 const InstaImage = styled.img`
-  margin: 2rem;
+  padding: 2rem;
+  @media screen and (min-width: 420px) {
+    width: 40%;
+  }
+`;
+
+const InstaWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 `;
 
 function InstaPosts() {
@@ -12,7 +21,7 @@ function InstaPosts() {
       query={graphql`
         query InstaQuery {
           allInstaNode(
-            limit: 5
+            limit: 6
             sort: { order: DESC, fields: timestamp }
             filter: { mediaType: { eq: "GraphImage" } }
           ) {
@@ -35,15 +44,18 @@ function InstaPosts() {
         }
       `}
       render={data => {
-        console.log(data.allInstaNode.edges);
-        return data.allInstaNode.edges.map(edge => (
-          <InstaImage
-            src={edge.node.thumbnails[2].src}
-            key={edge.node.id}
-            width={edge.node.thumbnails[2].config_width}
-            height={edge.node.thumbnails[2].config_heigth}
-          />
-        ));
+        return (
+          <InstaWrapper>
+            {data.allInstaNode.edges.map(edge => (
+              <InstaImage
+                src={edge.node.thumbnails[3].src}
+                key={edge.node.id}
+                width={edge.node.thumbnails[3].config_width}
+                height={edge.node.thumbnails[3].config_heigth}
+              />
+            ))}
+          </InstaWrapper>
+        );
       }}
     />
   );
