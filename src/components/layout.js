@@ -23,9 +23,8 @@ const GlobalStyle = createGlobalStyle`
 const MainContent = styled.div`
   margin: 0 auto;
   max-width: 960px;
-  padding: 0px 0px 1.45rem;
+  padding: 0px 0px;
   padding-top: 0;
-  margin-bottom: 4.8rem;
 `;
 
 const Layout = ({ children, location }) => (

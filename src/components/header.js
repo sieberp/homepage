@@ -21,14 +21,14 @@ const NavLink = styled(Link)`
   text-align: right;
   text-decoration: none;
   color: ${props => props.theme.black};
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bolder;
   margin: 10px;
   :hover {
     opacity: 0.7;
   }
   @media (min-width: 699px) {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
   }
 `;
 
@@ -51,7 +51,7 @@ const Header = ({ siteTitle }) => (
         <Logo />
       </Link>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/web">Web</NavLink>
+      {/* <NavLink to="/web">Web</NavLink> */}
       <NavLink to="/rowing">Rowing</NavLink>
     </Inner>
   </Container>

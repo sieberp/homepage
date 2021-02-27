@@ -2,26 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SEO from '../components/seo';
-import Wave from '../../assets/wave2.svg';
 import Text from '../components/styles/text';
 import Highlight from '../components/styles/highlight';
-import Grid from '../components/styles/grid';
-import ContactButton from '../components/contactButton';
 import InstaPosts from '../components/instaPosts';
-
-const WaveSvg = styled(Wave)`
-  position: fixed;
-  bottom: 6.8rem;
-  left: 0;
-  opacity: 0.3;
-  width: 100vw;
-  z-index: -1;
-`;
 
 const Cite = styled.span`
   font-style: italic;
   font-size: 2.5rem;
   font-weight: bolder;
+`;
+
+const StyledA = styled.a`
+  color: ${props => props.theme.main_color};
+  text-decoration: none;
+  cursor: pointer;
+  :hover {
+    color: ${props => props.theme.main_color_dark};
+  }
+`;
+
+const Follow = styled.span`
+  padding: 0 1rem;
+  font-size: 2rem;
+  font-weight: bold;
 `;
 
 const RowingPage = () => (
@@ -59,9 +62,11 @@ const RowingPage = () => (
         <Highlight>get to work together</Highlight>.
       </p>
     </Text>
-    {/* <InstaPosts /> */}
-
-    <WaveSvg />
+    <Follow>
+      Follow my journey on{' '}
+      <StyledA href="https://www.instagram.com/paul_sieber">Instagram</StyledA>
+    </Follow>
+    <InstaPosts />
   </>
 );
 

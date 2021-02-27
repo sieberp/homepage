@@ -3,11 +3,19 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import Bundesheer from '../../assets/bundesheer.svg';
+import Wave from '../../assets/wave3.svg';
+
+const WaveSvg = styled(Wave)`
+  position: relative;
+  top: 3px;
+  width: 100vw;
+  z-index: -1;
+`;
 
 const Container = styled.footer`
-  position: fixed;
+  /* position: absolute; */
   bottom: 0px;
-  background-color: #C1DBE3;
+  background-color: #c1dbe3;
   color: ${props => props.theme.black};
   width: calc(100vw - 20px);
   padding: 10px;
@@ -42,17 +50,24 @@ const BhLogo = styled(Bundesheer)`
 `;
 
 const Footer = () => (
-  <Container>
-    <Inner>
-      <Support>
-        Supported by{' '}
-        <a href="http://www.bundesheer.at/" target="_blank" rel="noopener noreferrer">
-          <BhLogo />
-        </a>
-      </Support>
-      <NavLink to="/impressum">Impressum</NavLink>
-    </Inner>
-  </Container>
+  <>
+    <WaveSvg />
+    <Container>
+      <Inner>
+        <Support>
+          Supported by{' '}
+          <a
+            href="http://www.bundesheer.at/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <BhLogo />
+          </a>
+        </Support>
+        <NavLink to="/impressum">Impressum</NavLink>
+      </Inner>
+    </Container>
+  </>
 );
 
 export default Footer;

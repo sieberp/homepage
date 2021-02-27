@@ -2,33 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SEO from '../components/seo';
-import Hello from '../../assets/hello.svg';
-import Wave from '../../assets/wave1.svg';
 import Text from '../components/styles/text';
-import Highlight from '../components/styles/highlight';
 import StyledLink from '../components/styles/styledLink';
 import Image from '../components/image';
-
-const HelloSvg = styled(Hello)`
-  transform: rotateY(180deg);
-  width: 64px;
-  height: 52px;
-  float: right;
-  margin-right: 30px;
-  @media (min-width: 699px) {
-    width: 100px;
-    height: 82px;
-  }
-`;
-
-const WaveSvg = styled(Wave)`
-  position: fixed;
-  bottom: 6.8rem;
-  left: 0;
-  opacity: 0.3;
-  width: 100vw;
-  z-index: -1;
-`;
 
 const Heading = styled.h2`
   font-size: 2.5rem;
@@ -40,7 +16,15 @@ const IndexPage = () => {
     <>
       <SEO
         title="Home"
-        keywords={[`rowing`, `webdevelopment`, `paul sieber`]}
+        keywords={[
+          `rowing`,
+          `webdevelopment`,
+          `paul sieber`,
+          `paul`,
+          `sieber`,
+          `rudern`,
+          `olympia`,
+        ]}
       />
       <Heading>
         Paul Sieber. <br />
@@ -65,7 +49,6 @@ const IndexPage = () => {
           If you have any questions or just want to say hi, send me an email.
         </p>
       </Text>
-      <WaveSvg />
     </>
   );
 };
