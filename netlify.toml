@@ -1,0 +1,4 @@
+[build]
+  functions = "./functions"
+[dev]
+  command = "npm run develop"
