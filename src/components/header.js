@@ -13,7 +13,7 @@ const Inner = styled.div`
   max-width: 960px;
   padding: 1.45rem 1.0875rem;
   display: grid;
-  grid-template-columns: 2fr repeat(3, max-content);
+  grid-template-columns: 2fr repeat(4, max-content);
   align-items: center;
 `;
 
@@ -51,8 +51,9 @@ const Header = ({ siteTitle }) => (
         <Logo />
       </Link>
       <NavLink to="/">Home</NavLink>
-      {/* <NavLink to="/web">Web</NavLink> */}
       <NavLink to="/rowing">Rowing</NavLink>
+      {/* <NavLink to="/web">Web</NavLink> */}
+      <NavLink to="/contact">Contact</NavLink>
     </Inner>
   </Container>
 );

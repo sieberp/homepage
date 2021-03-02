@@ -1,9 +1,13 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Paul Sieber | Rower and Webdeveloper`,
-    description: `Paul Sieber is an Olympic Rower and Web Developer.`,
-    author: `@gatsbyjs`,
-    main_color: `#3991AC`,
+    description: `Paul Sieber is an Olympic Rower and Web Developer who wants to help bring your ideas to life.`,
+    author: `@holpoli93`,
+    main_color: `#C1DBE3`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,12 +22,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: 'gatsby-plugin-page-transitions',
-      options: {
-        transitionTime: 500,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
@@ -32,14 +30,27 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout.js`),
+      },
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `371430908`,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Paul Siebers Personal Site`,
+        short_name: `sieber.dev`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`, // This path is relative to the root of the site.
+        background_color: `#C1DBE3`,
+        theme_color: `#C1DBE3`,
+        display: `minimal-ui`,
+        icon: `assets/icon.png`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
