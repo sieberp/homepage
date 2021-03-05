@@ -40,44 +40,44 @@ const Sec3 = styled.div`
 `;
 
 const WebPage = () => {
-  window.addEventListener('scroll', debounce(checkSection));
+  // window.addEventListener('scroll', debounce(checkSection));
 
-  const sections = document.querySelectorAll('.section');
+  // const sections = document.querySelectorAll('.section');
 
-  function checkSection() {
-    sections.forEach(section => {
-      console.log(section.clientHeight);
-      // half way through the image
-      const slideInAt =
-        window.scrollY + window.innerHeight - section.clientHeight / 2;
-      // bottom of the image
-      const imageBottom = section.offsetTop + section.clientHeight;
-      console.log(`imageBottom: ${imageBottom}`);
-      const isHalfShown = slideInAt > section.offsetTop;
-      const isNotScrolledPast = window.scrollY < imageBottom - 300;
-      if (isHalfShown && isNotScrolledPast) {
-        section.classList.add('active');
-      } else {
-        section.classList.remove('active');
-      }
-    });
-  }
+  // function checkSection() {
+  //   sections.forEach(section => {
+  //     console.log(section.clientHeight);
+  //     // half way through the image
+  //     const slideInAt =
+  //       window.scrollY + window.innerHeight - section.clientHeight / 2;
+  //     // bottom of the image
+  //     const imageBottom = section.offsetTop + section.clientHeight;
+  //     console.log(`imageBottom: ${imageBottom}`);
+  //     const isHalfShown = slideInAt > section.offsetTop;
+  //     const isNotScrolledPast = window.scrollY < imageBottom - 300;
+  //     if (isHalfShown && isNotScrolledPast) {
+  //       section.classList.add('active');
+  //     } else {
+  //       section.classList.remove('active');
+  //     }
+  //   });
+  // }
 
-  function debounce(func, wait = 20, immediate = true) {
-    var timeout;
-    return function() {
-      var context = this,
-        args = arguments;
-      var later = function() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
+  // function debounce(func, wait = 20, immediate = true) {
+  //   var timeout;
+  //   return function() {
+  //     var context = this,
+  //       args = arguments;
+  //     var later = function() {
+  //       timeout = null;
+  //       if (!immediate) func.apply(context, args);
+  //     };
+  //     var callNow = immediate && !timeout;
+  //     clearTimeout(timeout);
+  //     timeout = setTimeout(later, wait);
+  //     if (callNow) func.apply(context, args);
+  //   };
+  // }
 
   return (
     <StaticQuery
@@ -96,9 +96,7 @@ const WebPage = () => {
             title="Web"
             keywords={[`webdev`, `application`, `react`, `webdevelopment`]}
           />
-          <Sec1 className="section">
-            <img src="images/row_mountains.jpg" />
-          </Sec1>
+          <Sec1 className="section" />
           <Sec2 className="section" />
           <Sec3 className="section" />
         </>
