@@ -20,12 +20,31 @@ const Inner = styled.div`
 const NavLink = styled(Link)`
   text-align: right;
   text-decoration: none;
-  color: ${props => props.theme.black};
+  color: ${props => props.theme.text};
   font-size: 1.8rem;
   font-weight: bolder;
   margin: 10px;
-  :hover {
-    opacity: 0.7;
+  display: inline-block;
+  position: relative;
+  :before {
+    content: '';
+    display: block;
+    height: 0.5rem;
+    width: 0;
+    background-color: ${({ theme }) => theme.link_text};
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.5rem;
+    z-index: -1;
+    border-radius: 2px;
+    transition: width 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  :hover:before {
+    width: 100%;
+  }
+  &.active:before {
+    width: 100%;
   }
   @media (min-width: 699px) {
     font-size: 2.5rem;
@@ -35,6 +54,8 @@ const NavLink = styled(Link)`
 const Logo = styled(LogoSVG)`
   width: 100px;
   height: 45px;
+  fill: ${props => props.theme.text};
+  stroke: ${props => props.theme.text};
   :hover {
     opacity: 0.7;
   }
@@ -44,19 +65,41 @@ const Logo = styled(LogoSVG)`
   }
 `;
 
-const Header = ({ siteTitle }) => (
-  <Container>
-    <Inner>
-      <Link to="/">
-        <Logo />
-      </Link>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/rowing">Rowing</NavLink>
-      {/* <NavLink to="/web">Web</NavLink> */}
-      <NavLink to="/contact">Contact</NavLink>
-    </Inner>
-  </Container>
-);
+const Header = () => {
+  React.useEffect(() => {
+    console.log(window.location.pathname.slice(1));
+    if (window.location.pathname === '/') {
+      return;
+    }
+    const activeLink = document.getElementById(
+      window.location.pathname.replaceAll('/', '')
+    );
+    activeLink.classList.add('active');
+    return () => {
+      activeLink.classList.remove('active');
+    };
+  });
+
+  return (
+    <Container>
+      <Inner>
+        <Link to="/">
+          <Logo />
+        </Link>
+        {/* <NavLink to="/">Home</NavLink> */}
+        <NavLink to="/rowing" id="rowing">
+          Rowing
+        </NavLink>
+        <NavLink to="/web" id="web">
+          Web
+        </NavLink>
+        <NavLink to="/contact" id="contact">
+          Contact
+        </NavLink>
+      </Inner>
+    </Container>
+  );
+};
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

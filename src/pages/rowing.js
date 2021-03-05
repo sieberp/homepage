@@ -13,11 +13,30 @@ const Cite = styled.span`
 `;
 
 const StyledA = styled.a`
-  color: ${props => props.theme.main_color};
+  color: ${props => props.theme.link_text};
   text-decoration: none;
   cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: color 0.2s cubic-bezier(0.86, 0, 0.07, 1);
   :hover {
-    color: ${props => props.theme.main_color_dark};
+    color: ${props => props.theme.body};
+  }
+  :before {
+    content: '';
+    display: block;
+    height: 0;
+    background-color: ${({ theme }) => theme.link_text};
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 2px;
+    transition: height 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  :hover:before {
+    height: 100%;
   }
 `;
 
@@ -64,7 +83,9 @@ const RowingPage = () => (
     </Text>
     <Follow>
       Follow my journey on{' '}
-      <StyledA href="https://www.instagram.com/paul_sieber">Instagram</StyledA>
+      <StyledA href="https://www.instagram.com/paul_sieber" target="_empty">
+        Instagram
+      </StyledA>
     </Follow>
     <InstaPosts />
   </>

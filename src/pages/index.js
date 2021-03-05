@@ -17,18 +17,18 @@ const IndexPage = () => {
       <SEO
         title="Home"
         keywords={[
-          `rowing`,
-          `webdevelopment`,
           `paul sieber`,
           `paul`,
           `sieber`,
           `rudern`,
+          `rowing`,
           `olympia`,
+          `webdevelopment`,
         ]}
       />
       <Heading>
         Paul Sieber. <br />
-        <StyledLink to="/rowing">Olympic rower</StyledLink> and{' '}
+        <StyledLink to="/rowing">Olympic rower</StyledLink> &{' '}
         <StyledLink to="/web">webdeveloper</StyledLink>.
       </Heading>
       <Image />
@@ -48,6 +48,13 @@ const IndexPage = () => {
         <p>
           If you have any questions or just want to say hi, send me an email.
         </p>
+        <ul>
+          <li>helping others fulfill there potential</li>
+          <li>cathalysator</li>
+          <li>
+            making the <del>im</del>possible
+          </li>
+        </ul>
       </Text>
     </>
   );

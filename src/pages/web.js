@@ -1,44 +1,110 @@
+import { StaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
 
 import SEO from '../components/seo';
-import Developer from '../../assets/developer.svg';
-import Wave from '../../assets/wave3.svg';
-import Text from '../components/styles/text';
-import Grid from '../components/styles/grid';
-import ContactButton from '../components/contactButton';
 
-const DeveloperStyle = styled(Developer)`
-  width: 96px;
-  height: 52px;
-  float: right;
-  margin-right: 30px;
-  @media (min-width: 699px) {
-    width: 152px;
-    height: 82px;
+const Sec1 = styled.div`
+  height: 100vh;
+  background-color: pink;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  &.active {
+    opacity: 1;
+  }
+`;
+const Sec2 = styled.div`
+  width: 50%;
+  height: 100vh;
+  background-color: greenyellow;
+  position: relative;
+  left: 50%;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  &.active {
+    opacity: 1;
+  }
+`;
+const Sec3 = styled.div`
+  width: 50%;
+  height: 100vh;
+  background-color: pink;
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  &.active {
+    opacity: 1;
   }
 `;
 
-const WaveSvg = styled(Wave)`
-  position: fixed;
-  bottom: 6.8rem;
-  left: 0;
-  opacity: 0.3;
-  width: 100vw;
-  z-index: -1;
-`;
+const WebPage = () => {
+  window.addEventListener('scroll', debounce(checkSection));
 
-const WebPage = () => (
-  <>
-    <SEO
-      title="Web"
-      keywords={[`webdev`, `application`, `react`, `webdevelopment`]}
+  const sections = document.querySelectorAll('.section');
+
+  function checkSection() {
+    sections.forEach(section => {
+      console.log(section.clientHeight);
+      // half way through the image
+      const slideInAt =
+        window.scrollY + window.innerHeight - section.clientHeight / 2;
+      // bottom of the image
+      const imageBottom = section.offsetTop + section.clientHeight;
+      console.log(`imageBottom: ${imageBottom}`);
+      const isHalfShown = slideInAt > section.offsetTop;
+      const isNotScrolledPast = window.scrollY < imageBottom - 300;
+      if (isHalfShown && isNotScrolledPast) {
+        section.classList.add('active');
+      } else {
+        section.classList.remove('active');
+      }
+    });
+  }
+
+  function debounce(func, wait = 20, immediate = true) {
+    var timeout;
+    return function() {
+      var context = this,
+        args = arguments;
+      var later = function() {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query ImageQuerz {
+          site {
+            siteMetadata {
+              title
+            }
+          }
+        }
+      `}
+      render={data => (
+        <>
+          <SEO
+            title="Web"
+            keywords={[`webdev`, `application`, `react`, `webdevelopment`]}
+          />
+          <Sec1 className="section">
+            <img src="images/row_mountains.jpg" />
+          </Sec1>
+          <Sec2 className="section" />
+          <Sec3 className="section" />
+        </>
+      )}
     />
-    <Text>
-      <p>This is the web dev page</p>
-    </Text>
-    <WaveSvg />
-  </>
-);
+  );
+};
 
 export default WebPage;

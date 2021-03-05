@@ -15,7 +15,8 @@ const StyledInput = styled.input`
   box-shadow: 1px 2px 7px 2px rgba(0, 0, 0, 0.3);
   outline: none;
   :focus {
-    border-color: ${props => props.theme.main_color};
+    border-color: ${props => props.theme.link_text};
+    box-shadow: 0 0 5px 2px ${({ theme }) => theme.link_text};
   }
 `;
 
@@ -26,11 +27,12 @@ const StyledTextarea = styled.textarea`
   border-radius: 5px;
   border: 1px solid #333333;
   box-shadow: 1px 2px 7px 2px rgba(0, 0, 0, 0.3);
-  outline: none;
   width: 100%;
   height: 70%;
+  outline: none;
   :focus {
-    border-color: ${props => props.theme.main_color};
+    border-color: ${props => props.theme.link_text};
+    box-shadow: 0 0 5px 2px ${({ theme }) => theme.link_text};
   }
   @media screen and (max-width: 500px) {
     height: 70px;
@@ -64,6 +66,9 @@ const StyledLabel = styled.label`
   &.message {
     grid-area: mes;
   }
+  /* @media screen and (max-width: 500px) {
+    width: 100%;
+  } */
 `;
 
 const StyledButton = styled.button`
@@ -78,8 +83,7 @@ const StyledButton = styled.button`
   outline: none;
   :hover,
   :focus {
-    border-color: ${props => props.theme.main_color};
-    border-width: 2px;
+    box-shadow: 0 0 5px 2px ${({ theme }) => theme.link_text};
   }
 `;
 
@@ -94,6 +98,7 @@ const Contact = () => {
     message: '',
   });
   const [buttonText, setButtonText] = React.useState('Send!');
+  const [status, setStatus] = React.useState('idle');
 
   const handleChange = event => {
     setInputs({
@@ -106,22 +111,27 @@ const Contact = () => {
     event.preventDefault();
     console.log(inputs);
     setButtonText('Sending...');
+    setStatus('sending');
     console.log(axios.defaults);
-    const response = await axios.post(
-      '/.netlify/functions/send-contact-email',
-      {
+    await axios
+      .post('/.netlify/functions/send-contact-email', {
         contactName: inputs.name,
         contactEmail: inputs.email,
         message: inputs.message,
-      }
-    );
-    setInputs({
-      name: '',
-      email: '',
-      message: '',
-    });
-    setButtonText('Send!');
-    console.log(response);
+      })
+      .then(response => {
+        setStatus('sent');
+        setInputs({
+          name: '',
+          email: '',
+          message: '',
+        });
+        setButtonText('Send!');
+      })
+      .catch(error => {
+        setStatus('error');
+        setButtonText('Send');
+      });
   };
 
   return (
@@ -167,6 +177,11 @@ const Contact = () => {
               {buttonText}
             </StyledButton>
           </StyledForm>
+          {status === 'error'
+            ? 'There was an error. Please try again later.'
+            : status === 'sent'
+            ? 'Thank you for your message. We will be in contact with you shortly.'
+            : ''}
         </Text>
       </Wrapper>
     </>

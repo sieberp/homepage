@@ -10,13 +10,16 @@ const WaveSvg = styled(Wave)`
   top: 3px;
   width: 100vw;
   z-index: -1;
+  fill: ${({ theme }) => theme.link_text};
+  opacity: 0.7;
 `;
 
 const Container = styled.footer`
   /* position: absolute; */
   bottom: 0px;
-  background-color: #c1dbe3;
-  color: ${props => props.theme.black};
+  background-color: ${({ theme }) => theme.link_text};
+  opacity: 0.7;
+  color: ${props => props.theme.text};
   width: calc(100vw - 20px);
   padding: 10px;
   height: 4.8rem;
@@ -32,7 +35,7 @@ const Inner = styled.div`
 `;
 
 const NavLink = styled(Link)`
-  color: ${props => props.theme.black};
+  color: ${props => props.theme.text};
   text-decoration: none;
   font-size: 1rem;
   text-align: right;

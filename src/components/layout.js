@@ -5,7 +5,7 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import Header from './header';
 import Footer from './footer';
-import theme from './styles/theme';
+import theme, { light_theme, dark_theme } from './styles/theme';
 import Transtion from './transition';
 
 const GlobalStyle = createGlobalStyle`
@@ -14,9 +14,9 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     margin: 0;
-    font-family: ${props => props.theme.fontStack};
-    color: ${props => props.theme.black};
-    background: ${props => props.theme.white};
+    font-family: 'Varela Round', sans-serif;
+    color: ${({ theme }) => theme.text};
+    background: ${({ theme }) => theme.body};
   }
 `;
 
@@ -27,31 +27,37 @@ const MainContent = styled.div`
   padding-top: 0;
 `;
 
-const Layout = ({ children, location }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+const Layout = ({ children, location }) => {
+  const [theme, setTheme] = React.useState('light');
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyle />
-          <Header />
-          <Transtion location={location}>
-            <MainContent>{children}</MainContent>
-          </Transtion>
-          <Footer />
-        </>
-      </ThemeProvider>
-    )}
-  />
-);
+      `}
+      render={data => (
+        <ThemeProvider theme={theme === 'light' ? light_theme : dark_theme}>
+          <>
+            <GlobalStyle />
+            <Header />
+            <Transtion location={location}>
+              <MainContent>{children}</MainContent>
+            </Transtion>
+            <Footer />
+          </>
+        </ThemeProvider>
+      )}
+    />
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
