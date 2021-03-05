@@ -3,10 +3,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 
-const InstaImage = styled.img`
+const InstaImage = styled(Img)`
   padding: 2rem 0;
   max-width: 100%;
+  aspect-ratio: 1/1;
+  margin: 2rem;
   @media screen and (min-width: 437px) {
     width: 40%;
   }
@@ -28,17 +31,17 @@ function InstaPosts() {
         query InstaQuery {
           allInstaNode(
             limit: 6
+            skip: 2
             # sort: { order: DESC, fields: timestamp }
             filter: { mediaType: { eq: "GraphImage" } }
           ) {
-            edges {
-              node {
+            nodes {
+              localFile {
                 id
-                caption
-                thumbnails {
-                  config_height
-                  config_width
-                  src
+                childImageSharp {
+                  fluid(maxWidth: 480) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }
@@ -48,13 +51,16 @@ function InstaPosts() {
       render={data => {
         return (
           <InstaWrapper>
-            {data.allInstaNode.edges.map(edge => (
-              <InstaImage
-                src={edge.node.thumbnails[3].src}
-                key={edge.node.id}
-                width={edge.node.thumbnails[3].config_width}
-              />
-            ))}
+            {data.allInstaNode.nodes.map(node => {
+              console.log(node);
+              return (
+                <InstaImage
+                  fluid={node.localFile.childImageSharp.fluid}
+                  key={node.id}
+                />
+              );
+            })}
+            {console.log(data)}
           </InstaWrapper>
         );
       }}
