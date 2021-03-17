@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { StaticQuery } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 const InstaImage = styled(Img)`
@@ -31,8 +31,7 @@ function InstaPosts() {
         query InstaQuery {
           allInstaNode(
             limit: 6
-            skip: 2
-            # sort: { order: DESC, fields: timestamp }
+            sort: { order: DESC, fields: timestamp }
             filter: { mediaType: { eq: "GraphImage" } }
           ) {
             nodes {
