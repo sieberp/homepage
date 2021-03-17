@@ -83,8 +83,9 @@ const IndexPage = () => {
           web.
         </p>
         <p>
-          I love to work in teams, improve every day, perfect every detail and
-          performing at the top level.
+          I love to work in teams, improve every day, optimize every detail and
+          perform at the top level. Amaing for perfection - in rowing and
+          webdevelopment.
         </p>
         <ActionCall>
           Let's make the
