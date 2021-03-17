@@ -68,12 +68,8 @@ const Section = styled.section`
   height: max-content;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  ::nth-child(2n) {
+  :nth-of-type(2n) {
     grid-template-columns: 2fr 1fr;
-    color: green;
-  }
-  ::last-child {
-    display: block;
   }
 `;
 
@@ -83,27 +79,18 @@ const RowingPage = ({ data }) => {
       <SEO title="Rowing" keywords={[`rowing`, `olympics`, `sieber`, `paul`]} />
       <Text>
         <Cite>"Rowing is like flying, just better..."</Cite>
-        {/* <p>
-          <br />
-          <br />
-          This feeling is the reason I fell in love with rowing more than 15
-          years ago. This feeling is the reason why I will continue to row my
-          whole life.
-          <br />
-          <br /> */}
-
         <Section data-sal="fade" data-sal-delay="300" data-sal-easing="ease">
           <p>
             In rowing there is no perfect stroke, you can row your whole life,
             there will always be something to work on. But there is the feeling
             of gliding over the water, being in synchronistation with your team,
             calmly breathing, being alive -{' '}
-            <Highlight>this is perfection</Highlight>.{console.log(data.file)}
+            <Highlight>this is perfection</Highlight>.
           </p>
-          <Img fluid={data.file.childImageSharp.fluid} />
+          <Img fluid={data.tealRow.childImageSharp.fluid} />
         </Section>
         <Section data-sal="fade" data-sal-delay="600" data-sal-easing="ease">
-          <Img fluid={data.file.childImageSharp.fluid} />
+          <Img fluid={data.mountainRow.childImageSharp.fluid} />
           <p>
             But there is another side to this sport. Nervousness, excitement,
             pain, fun - feelings one feels while racing. Testing yourself
@@ -146,7 +133,14 @@ export default RowingPage;
 
 export const pageQuery = graphql`
   query {
-    file(name: { eq: "teal_row" }) {
+    tealRow: file(name: { eq: "teal_row" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    mountainRow: file(name: { eq: "row_mountains" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
           ...GatsbyImageSharpFluid

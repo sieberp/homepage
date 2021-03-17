@@ -52,15 +52,13 @@ function InstaPosts() {
         return (
           <InstaWrapper>
             {data.allInstaNode.nodes.map(node => {
-              console.log(node);
               return (
                 <InstaImage
                   fluid={node.localFile.childImageSharp.fluid}
-                  key={node.id}
+                  key={node.localFile.id}
                 />
               );
             })}
-            {console.log(data)}
           </InstaWrapper>
         );
       }}
