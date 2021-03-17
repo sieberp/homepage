@@ -77,14 +77,14 @@ const IndexPage = () => {
         <StyledLink to="/web">webdeveloper</StyledLink>
       </Heading>
       <Image />
-      <Text height="big">
+      <Text>
         <p>
           My goal is to create extra ordinary experiences - in rowing and on the
           web.
         </p>
         <p>
           I love to work in teams, improve every day, optimize every detail and
-          perform at the top level. Amaing for perfection - in rowing and
+          perform at the top level. Aiming for perfection - in rowing and
           webdevelopment.
         </p>
         <ActionCall>
