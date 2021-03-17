@@ -22,7 +22,7 @@ const Image = () => (
   <StaticQuery
     query={graphql`
       query {
-        placeholderImage: file(relativePath: { eq: "teal_row.jpg" }) {
+        placeholderImage: file(relativePath: { eq: "hero.jpg" }) {
           childImageSharp {
             fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid
@@ -35,6 +35,7 @@ const Image = () => (
       <HeroImage
         fluid={data.placeholderImage.childImageSharp.fluid}
         imgStyle={{ objectPosition: 'center 60%' }}
+        alt="Paul Sieber standing with crossed arms looking into the camera"
       />
     )}
   />

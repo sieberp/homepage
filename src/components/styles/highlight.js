@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const Highlight = styled.span`
-  color: ${props => props.theme.main_color};
+  font-weight: bolder;
+  color: ${props => props.theme.link_text};
 `;
 
 export default Highlight;

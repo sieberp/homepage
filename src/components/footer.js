@@ -6,21 +6,15 @@ import Bundesheer from '../../assets/bundesheer.svg';
 import Wave from '../../assets/wave3.svg';
 
 const WaveSvg = styled(Wave)`
-  position: relative;
-  top: 3px;
-  width: 100vw;
+  display: block;
   z-index: -1;
   fill: ${({ theme }) => theme.link_text};
-  opacity: 0.7;
 `;
 
 const Container = styled.footer`
   /* position: absolute; */
-  bottom: 0px;
   background-color: ${({ theme }) => theme.link_text};
-  opacity: 0.7;
-  color: ${props => props.theme.text};
-  width: calc(100vw - 20px);
+  color: ${props => props.theme.body};
   padding: 10px;
   height: 4.8rem;
   font-size: 1.5rem;
@@ -35,7 +29,7 @@ const Inner = styled.div`
 `;
 
 const NavLink = styled(Link)`
-  color: ${props => props.theme.text};
+  color: inherit;
   text-decoration: none;
   font-size: 1rem;
   text-align: right;

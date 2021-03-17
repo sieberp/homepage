@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import SEO from '../components/seo';
 import Text from '../components/styles/text';
@@ -7,8 +7,53 @@ import StyledLink from '../components/styles/styledLink';
 import Image from '../components/image';
 
 const Heading = styled.h2`
-  font-size: 2.5rem;
+  font-size: 3rem;
   padding: 0 1rem;
+`;
+
+const lineThrough = keyframes`
+  0% {
+    width: 0;
+  }
+  
+  20% {
+    width: 0;
+  }
+
+  80% {
+    width: 100%;
+  }
+
+  100% {
+    width: 100%;
+  }
+`;
+
+const ActionCall = styled.p`
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: 1px;
+  text-shadow: 0px 1.5px 5px rgba(0, 0, 0, 0.2), 1px 2px 5px rgba(0, 0, 0, 0.3),
+    -1px 2px 5px rgba(0, 0, 0, 0.3);
+
+  span {
+    position: relative;
+    display: inline-block;
+    transform: all 0.5 cubic-bezier;
+    height: fit-content;
+  }
+  span::before {
+    position: absolute;
+    top: calc(50% - 1.5px);
+    content: ' ';
+    height: 3px;
+    border-radius: 5px;
+    background-color: ${({ theme }) => theme.link_text};
+    animation-name: ${lineThrough};
+    animation-duration: 1.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+  }
 `;
 
 const IndexPage = () => {
@@ -27,34 +72,24 @@ const IndexPage = () => {
         ]}
       />
       <Heading>
-        Paul Sieber. <br />
+        Paul Sieber <br />
         <StyledLink to="/rowing">Olympic rower</StyledLink> &{' '}
-        <StyledLink to="/web">webdeveloper</StyledLink>.
+        <StyledLink to="/web">webdeveloper</StyledLink>
       </Heading>
       <Image />
-      <Text>
+      <Text height="big">
         <p>
-          On the water I celebrated U-23-Worldchamp title and a 12th place at
-          the Olympic Games in Rio. You can find out more about me as a rower on
-          this <StyledLink to="/rowing">page</StyledLink>.
-        </p>
-
-        <p>
-          Off the water I like to create good looking usable websites and apps.
-          If you want to know more about the technologies I’m working with or
-          how this site was build head over to this{' '}
-          <StyledLink to="/web">page</StyledLink>.
+          My goal is to create extra ordinary experiences - in rowing and on the
+          web.
         </p>
         <p>
-          If you have any questions or just want to say hi, send me an email.
+          I love to work in teams, improve every day, perfect every detail and
+          performing at the top level.
         </p>
-        <ul>
-          <li>helping others fulfill there potential</li>
-          <li>cathalysator</li>
-          <li>
-            making the <del>im</del>possible
-          </li>
-        </ul>
+        <ActionCall>
+          Let's make the
+          <br /> <span>IM</span>POSSIBLE
+        </ActionCall>
       </Text>
     </>
   );

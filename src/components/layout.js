@@ -5,7 +5,7 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import Header from './header';
 import Footer from './footer';
-import theme, { light_theme, dark_theme } from './styles/theme';
+import { light_theme, dark_theme } from './styles/theme';
 import Transtion from './transition';
 
 const GlobalStyle = createGlobalStyle`
@@ -28,10 +28,10 @@ const MainContent = styled.div`
 `;
 
 const Layout = ({ children, location }) => {
-  const [theme, setTheme] = React.useState('light');
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
+  const [theme] = React.useState('light');
+  // const themeToggler = () => {
+  //   theme === 'light' ? setTheme('dark') : setTheme('light');
+  // };
   return (
     <StaticQuery
       query={graphql`

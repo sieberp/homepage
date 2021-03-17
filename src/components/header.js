@@ -67,8 +67,11 @@ const Logo = styled(LogoSVG)`
 
 const Header = () => {
   React.useEffect(() => {
-    console.log(window.location.pathname.slice(1));
-    if (window.location.pathname === '/') {
+    if (
+      !window.location.pathname.startsWith('/web') &&
+      !window.location.pathname.startsWith('/rowing') &&
+      !window.location.pathname.startsWith('/contact')
+    ) {
       return;
     }
     const activeLink = document.getElementById(
@@ -86,7 +89,6 @@ const Header = () => {
         <Link to="/">
           <Logo />
         </Link>
-        {/* <NavLink to="/">Home</NavLink> */}
         <NavLink to="/rowing" id="rowing">
           Rowing
         </NavLink>
