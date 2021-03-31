@@ -44,7 +44,9 @@ const StyledA = styled.a`
 `;
 
 const StyledImg = styled(Img)`
-  margin: 2rem;
+  @media screen and (min-width: 700px) {
+    margin: 2rem;
+  }
 `;
 
 const Follow = styled.span`
