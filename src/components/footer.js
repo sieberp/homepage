@@ -28,12 +28,12 @@ const Inner = styled.div`
   margin: 0 auto;
 `;
 
-const NavLink = styled(Link)`
-  color: inherit;
-  text-decoration: none;
-  font-size: 1rem;
-  text-align: right;
-`;
+// const NavLink = styled(Link)`
+//   color: inherit;
+//   text-decoration: none;
+//   font-size: 1rem;
+//   text-align: right;
+// `;
 
 const Support = styled.div`
   display: grid;
@@ -61,7 +61,7 @@ const Footer = () => (
             <BhLogo />
           </a>
         </Support>
-        <NavLink to="/impressum">Impressum</NavLink>
+        {/* <NavLink to="/impressum">Impressum</NavLink> */}
       </Inner>
     </Container>
   </>

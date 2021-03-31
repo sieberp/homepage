@@ -10,9 +10,6 @@ const InstaImage = styled(Img)`
   max-width: 100%;
   aspect-ratio: 1/1;
   margin: 2rem;
-  @media screen and (min-width: 437px) {
-    width: 40%;
-  }
   :hover + span {
     border: 2px solid red;
   }
@@ -22,6 +19,9 @@ const InstaWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  a {
+    width: 50%;
+  }
 `;
 
 function InstaPosts() {
@@ -35,6 +35,7 @@ function InstaPosts() {
             filter: { mediaType: { eq: "GraphImage" } }
           ) {
             nodes {
+              id
               localFile {
                 id
                 childImageSharp {
@@ -52,10 +53,15 @@ function InstaPosts() {
           <InstaWrapper>
             {data.allInstaNode.nodes.map(node => {
               return (
-                <InstaImage
-                  fluid={node.localFile.childImageSharp.fluid}
-                  key={node.localFile.id}
-                />
+                <a
+                  href={`https://www.instagram.com/p/${node.id}`}
+                  target="_empty"
+                >
+                  <InstaImage
+                    fluid={node.localFile.childImageSharp.fluid}
+                    key={node.localFile.id}
+                  />
+                </a>
               );
             })}
           </InstaWrapper>
@@ -64,7 +70,6 @@ function InstaPosts() {
     />
   );
   {
-    /* <h1>Here should be the insta posts</h1> */
   }
 }
 

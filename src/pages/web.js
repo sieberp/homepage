@@ -23,13 +23,8 @@ const WebPage = ({ data }) => {
         ]}
       />
       <Text height="big">
-        I build beautiful and functional websites with the help of{' '}
-        <Highlight>React</Highlight> and <Highlight>Wordpress</Highlight>.
-        <ul>
-          {data.allMarkdownRemark.nodes.map(project => {
-            return <li key={project.id}>{project.frontmatter.projectName}</li>;
-          })}
-        </ul>
+        I build beautiful an functional websites. <br /> <br />
+        More Information coming soon!
       </Text>
     </>
   );

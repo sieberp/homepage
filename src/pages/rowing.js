@@ -6,6 +6,7 @@ import Img from 'gatsby-image';
 import SEO from '../components/seo';
 import Text from '../components/styles/text';
 import Highlight from '../components/styles/highlight';
+import StyledLink from '../components/styles/styledLink';
 import InstaPosts from '../components/instaPosts';
 
 const Cite = styled.span`
@@ -42,23 +43,17 @@ const StyledA = styled.a`
   }
 `;
 
+const StyledImg = styled(Img)`
+  margin: 2rem;
+`;
+
 const Follow = styled.span`
+  display: block;
+  width: 100%;
   padding: 0 1rem;
   font-size: 2rem;
   font-weight: bold;
 `;
-
-// const Container = styled.main`
-//   height: 70vh;
-//   overflow-y: scroll;
-//   width: 100%;
-//   scroll-snap-type: y mandatory;
-//   :after {
-//     content: '';
-//     width: 1rem;
-//     background-color: pink;
-//   }
-// `;
 
 const Section = styled.section`
   position: relative;
@@ -70,6 +65,11 @@ const Section = styled.section`
   grid-template-columns: 1fr 2fr;
   :nth-of-type(2n) {
     grid-template-columns: 2fr 1fr;
+  }
+  @media screen and (max-width: 699px) {
+    display: block;
+    flex-direction: column-reverse;
+    flex-basis: 1;
   }
 `;
 
@@ -84,37 +84,27 @@ const RowingPage = ({ data }) => {
             In rowing there is no perfect stroke, you can row your whole life,
             there will always be something to work on. But there is the feeling
             of gliding over the water, being in synchronistation with your team,
-            calmly breathing, being alive -{' '}
+            calmly breathing, being alive -<br />
             <Highlight>this is perfection</Highlight>.
           </p>
-          <Img fluid={data.tealRow.childImageSharp.fluid} />
+          <StyledImg fluid={data.tealRow.childImageSharp.fluid} />
         </Section>
         <Section data-sal="fade" data-sal-delay="600" data-sal-easing="ease">
-          <Img fluid={data.mountainRow.childImageSharp.fluid} />
+          <StyledImg fluid={data.mountainRow.childImageSharp.fluid} />
           <p>
-            But there is another side to this sport. Nervousness, excitement,
-            pain, fun - feelings one feels while racing. Testing yourself
-            against the best in the world is something I enjoy as much as the
-            calmnes of this sport.
+            <Highlight>Racing at Olympic Games</Highlight> needs perfection. You
+            have to put in the work over years and stay in the moment when it
+            comes to racing. As an Olympian I know what it takes and am ready to
+            put in the effort.
             <br />
             <br />
-            The pinacle of racing is definetly{' '}
-            <Highlight>racing at Olympic Games</Highlight>. The best rowers in
-            the world meet after preparing for four years, giving it there all
-            and fighting for those medals. The Olympics are the place and time
-            when all the hard work is finished and you can just enjoy and put it
-            all out.
-            <br />
-            <br />
-            Right now I'm still in the middle of this journey. Still needing to
-            qualify, still needing to put the work in. If you would like to
-            support me in this journey, contact me and let's{' '}
-            <Highlight>get to work together</Highlight>.
+            If you want to support me on the journey to Tokio then{' '}
+            <StyledLink to="/contact">let's get to work together</StyledLink>
           </p>
         </Section>
         <Section data-sal="fade" data-sal-delay="900" data-sal-easing="ease">
           <Follow>
-            Follow my journey on{' '}
+            You can also follow my journey on{' '}
             <StyledA
               href="https://www.instagram.com/paul_sieber"
               target="_empty"
@@ -133,14 +123,14 @@ export default RowingPage;
 
 export const pageQuery = graphql`
   query {
-    tealRow: file(name: { eq: "teal_row" }) {
+    tealRow: file(name: { eq: "12" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
           ...GatsbyImageSharpFluid
         }
       }
     }
-    mountainRow: file(name: { eq: "row_mountains" }) {
+    mountainRow: file(name: { eq: "7" }) {
       childImageSharp {
         fluid(maxWidth: 1000) {
           ...GatsbyImageSharpFluid

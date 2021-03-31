@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Varela Round', sans-serif;
     color: ${({ theme }) => theme.text};
     background: ${({ theme }) => theme.body};
+    scroll-behavior: smooth;
   }
 `;
 
