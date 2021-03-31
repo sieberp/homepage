@@ -87,10 +87,16 @@ const RowingPage = ({ data }) => {
             calmly breathing, being alive -<br />
             <Highlight>this is perfection</Highlight>.
           </p>
-          <StyledImg fluid={data.tealRow.childImageSharp.fluid} />
+          <StyledImg
+            fluid={data.tealRow.childImageSharp.fluid}
+            alt="A rowing double in smooth light on flat water"
+          />
         </Section>
         <Section data-sal="fade" data-sal-delay="600" data-sal-easing="ease">
-          <StyledImg fluid={data.mountainRow.childImageSharp.fluid} />
+          <StyledImg
+            fluid={data.mountainRow.childImageSharp.fluid}
+            alt="A rowing double on flat water, athletes are pushing hard"
+          />
           <p>
             <Highlight>Racing at Olympic Games</Highlight> needs perfection. You
             have to put in the work over years and stay in the moment when it
