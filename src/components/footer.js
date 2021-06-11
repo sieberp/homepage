@@ -49,7 +49,7 @@ const Footer = () => (
     <Container>
       <div>
         <div />
-        <NavLink to="/about">About this page</NavLink>
+        <NavLink to="/about">About this site</NavLink>
       </div>
     </Container>
   </>
