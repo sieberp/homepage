@@ -2,11 +2,11 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import SEO from '../components/seo';
-import Text from '../components/styles/text';
+import TextStyles from '../components/styles/text';
 import StyledLink from '../components/styles/styledLink';
 import Image from '../components/image';
 
-const Heading = styled.h2`
+const Heading = styled.h1`
   font-size: 3rem;
   padding: 0 1rem;
 `;
@@ -69,6 +69,10 @@ const IndexPage = () => {
           `rowing`,
           `olympia`,
           `webdevelopment`,
+          `frontend`,
+          `react`,
+          `web`,
+          `developer`,
         ]}
       />
       <Heading>
@@ -77,20 +81,21 @@ const IndexPage = () => {
         <StyledLink to="/web">webdeveloper</StyledLink>
       </Heading>
       <Image />
-      <Text>
+      <TextStyles>
+        <h2>Hi, I'm Paul.</h2>
         <p>
-          My goal is to create extra ordinary experiences - in rowing and on the
-          web.
+          As a former olympic rower turned web developer my goal is to create
+          extra ordinary experiences - in rowing and on the web.
         </p>
         <p>
-          I love to work in teams, improve every day, optimize every detail and
-          perform at the top level. Always aiming for perfection.
+          I love to work in teams, optimize every detail and perform at the top
+          level. Always aiming for perfection.
         </p>
         <ActionCall>
           Let's make the
           <br /> <span>IM</span>POSSIBLE
         </ActionCall>
-      </Text>
+      </TextStyles>
     </>
   );
 };

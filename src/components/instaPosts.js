@@ -24,53 +24,51 @@ const InstaWrapper = styled.div`
   }
 `;
 
-function InstaPosts() {
-  return (
-    <StaticQuery
-      query={graphql`
-        query InstaQuery {
-          allInstaNode(
-            limit: 6
-            sort: { order: DESC, fields: timestamp }
-            filter: { mediaType: { eq: "GraphImage" } }
-          ) {
-            nodes {
-              id
-              localFile {
-                id
-                childImageSharp {
-                  fluid(maxWidth: 480) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      `}
-      render={data => {
-        return (
-          <InstaWrapper>
-            {data.allInstaNode.nodes.map(node => {
-              return (
-                <a
-                  href={`https://www.instagram.com/p/${node.id}`}
-                  target="_empty"
-                >
-                  <InstaImage
-                    fluid={node.localFile.childImageSharp.fluid}
-                    key={node.localFile.id}
-                  />
-                </a>
-              );
-            })}
-          </InstaWrapper>
-        );
-      }}
-    />
-  );
-  {
-  }
-}
+// function InstaPosts() {
+//   return (
+//     <StaticQuery
+//       query={graphql`
+//         query InstaQuery {
+//           allInstaNode(
+//             limit: 6
+//             sort: { order: DESC, fields: timestamp }
+//             filter: { mediaType: { eq: "GraphImage" } }
+//           ) {
+//             nodes {
+//               id
+//               localFile {
+//                 id
+//                 childImageSharp {
+//                   fluid(maxWidth: 480) {
+//                     ...GatsbyImageSharpFluid
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       `}
+//       render={data => {
+//         return (
+//           <InstaWrapper>
+//             {data.allInstaNode.nodes.map(node => {
+//               return (
+//                 <a
+//                   href={`https://www.instagram.com/p/${node.id}`}
+//                   target="_empty"
+//                 >
+//                   <InstaImage
+//                     fluid={node.localFile.childImageSharp.fluid}
+//                     key={node.localFile.id}
+//                   />
+//                 </a>
+//               );
+//             })}
+//           </InstaWrapper>
+//         );
+//       }}
+//     />
+//   );
+// }
 
-export default InstaPosts;
+// export default InstaPosts;

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import Bundesheer from '../../assets/bundesheer.svg';
@@ -12,11 +11,9 @@ const WaveSvg = styled(Wave)`
 `;
 
 const Container = styled.footer`
-  /* position: absolute; */
   background-color: ${({ theme }) => theme.link_text};
   color: ${props => props.theme.body};
   padding: 10px;
-  height: 4.8rem;
   font-size: 1.5rem;
 `;
 

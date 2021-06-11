@@ -16,6 +16,7 @@ import styled from 'styled-components';
 
 const HeroImage = styled(Img)`
   max-height: 400px;
+  margin-bottom: 2rem;
 `;
 
 const Image = () => (
@@ -35,7 +36,7 @@ const Image = () => (
       <HeroImage
         fluid={data.placeholderImage.childImageSharp.fluid}
         imgStyle={{ objectPosition: 'center 60%' }}
-        alt="Paul Sieber standing with crossed arms looking into the camera"
+        alt="Paul Sieber photographed by Julius Hirtzberger"
       />
     )}
   />

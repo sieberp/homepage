@@ -4,10 +4,8 @@ import { graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import SEO from '../components/seo';
-import Text from '../components/styles/text';
+import TextStyles from '../components/styles/text';
 import Highlight from '../components/styles/highlight';
-import StyledLink from '../components/styles/styledLink';
-import InstaPosts from '../components/instaPosts';
 
 const Cite = styled.span`
   font-style: italic;
@@ -15,46 +13,11 @@ const Cite = styled.span`
   font-weight: bolder;
 `;
 
-const StyledA = styled.a`
-  color: ${props => props.theme.link_text};
-  text-decoration: none;
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: color 0.2s cubic-bezier(0.86, 0, 0.07, 1);
-  :hover {
-    color: ${props => props.theme.body};
-  }
-  :before {
-    content: '';
-    display: block;
-    height: 0;
-    background-color: ${({ theme }) => theme.link_text};
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    border-radius: 2px;
-    transition: height 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-  }
-  :hover:before {
-    height: 100%;
-  }
-`;
-
 const StyledImg = styled(Img)`
+  margin: 1rem 0;
   @media screen and (min-width: 700px) {
     margin: 2rem;
   }
-`;
-
-const Follow = styled.span`
-  display: block;
-  width: 100%;
-  padding: 0 1rem;
-  font-size: 2rem;
-  font-weight: bold;
 `;
 
 const Section = styled.section`
@@ -65,7 +28,7 @@ const Section = styled.section`
   height: max-content;
   display: grid;
   grid-template-columns: 1fr 2fr;
-  :nth-of-type(2n) {
+  &:nth-of-type(2n) {
     grid-template-columns: 2fr 1fr;
   }
   @media screen and (max-width: 699px) {
@@ -75,11 +38,19 @@ const Section = styled.section`
   }
 `;
 
+const ListStyles = styled.ul`
+  list-style: none;
+  text-align: right;
+  li {
+    margin: 1rem;
+  }
+`;
+
 const RowingPage = ({ data }) => {
   return (
     <>
       <SEO title="Rowing" keywords={[`rowing`, `olympics`, `sieber`, `paul`]} />
-      <Text>
+      <TextStyles>
         <Cite>"Rowing is like flying, just better..."</Cite>
         <Section data-sal="fade" data-sal-delay="300" data-sal-easing="ease">
           <p>
@@ -91,13 +62,13 @@ const RowingPage = ({ data }) => {
           </p>
           <StyledImg
             fluid={data.tealRow.childImageSharp.fluid}
-            alt="A rowing double in smooth light on flat water"
+            alt="A rowing double in smooth light on flat water (c) Julius Hirtzberger"
           />
         </Section>
         <Section data-sal="fade" data-sal-delay="600" data-sal-easing="ease">
           <StyledImg
             fluid={data.mountainRow.childImageSharp.fluid}
-            alt="A rowing double on flat water, athletes are pushing hard"
+            alt="A rowing double on flat water, athletes are pushing hard (c) Julius Hirtzberger"
           />
           <p>
             <Highlight>Racing at Olympic Games</Highlight> needs perfection. You
@@ -106,23 +77,17 @@ const RowingPage = ({ data }) => {
             put in the effort.
             <br />
             <br />
-            If you want to support me on the journey to Tokio then{' '}
-            <StyledLink to="/contact">let's get to work together</StyledLink>
           </p>
         </Section>
-        <Section data-sal="fade" data-sal-delay="900" data-sal-easing="ease">
-          <Follow>
-            You can also follow my journey on{' '}
-            <StyledA
-              href="https://www.instagram.com/paul_sieber"
-              target="_empty"
-            >
-              Instagram
-            </StyledA>
-          </Follow>
-          <InstaPosts />
+        <Section data-sal="fade" data-sal-delay="600" data-sal-easing="ease">
+          <h2>Greates Achievments</h2>
+          <ListStyles>
+            <li>12th Place Olympic Games - Rio 2016</li>
+            <li>U-23 World Champion - Trakai 2012</li>
+            <li>Gold at the Universiade - Kazan 2013</li>
+          </ListStyles>
         </Section>
-      </Text>
+      </TextStyles>
     </>
   );
 };

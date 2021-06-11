@@ -11,11 +11,15 @@ import Transtion from './transition';
 
 const GlobalStyle = createGlobalStyle`
   html {
+    box-sizing: border-box;
+	  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 10px;
+    line-height: 1.5;
   }
+  *, *:before, *:after { box-sizing: inherit; margin: 0; padding: 0; }
   body {
     margin: 0;
-    font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round', 'Times new Roman', sans-serif;
     color: ${({ theme }) => theme.text};
     background: ${({ theme }) => theme.body};
     scroll-behavior: smooth;

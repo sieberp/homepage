@@ -1,21 +1,35 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 
-import Text from '../components/styles/text';
+import TextStyles from '../components/styles/text';
+import styled from 'styled-components';
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { markdownRemark } = data; // data.markdownRemark holds your post data
+const ImgStyles = styled.img`
+  width: 100%;
+  height: 400px;
+  object-position: 0 0;
+  object-fit: cover;
+`;
+
+export default function Template({ data }) {
+  const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
+
   return (
-    <Text>
-      <h1>{frontmatter.projectName}</h1>
-      <div
-        className="blog-post-content"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-    </Text>
+    <>
+      <Link to="/web">Back</Link>
+      <TextStyles>
+        <h1>{frontmatter.projectName}</h1>
+        <ImgStyles
+          src={frontmatter.featuredImage.publicURL}
+          alt={`Screenshot of the project for ${frontmatter.projectName}`}
+        />
+        <div
+          className="blog-post-content"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      </TextStyles>
+    </>
   );
 }
 export const pageQuery = graphql`
@@ -25,6 +39,10 @@ export const pageQuery = graphql`
       frontmatter {
         slug
         projectName
+        featuredImage {
+          publicURL
+          id
+        }
       }
     }
   }

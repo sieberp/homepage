@@ -1,6 +1,8 @@
 ---
 slug: '/projects/haimerl'
-projectName: 'Haimerl'
+projectName: 'Weingut Haimerl'
+featuredImage: './haimerl.jpg'
+url: https://www.haimerl.at
 technologies: ['wordpress', 'html', 'javascript', 'css']
 ---
 
