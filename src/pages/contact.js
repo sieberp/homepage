@@ -80,6 +80,8 @@ const StyledButton = styled.button`
   border: 1px solid #333;
   font-size: 2rem;
   box-shadow: 1px 2px 7px 2px rgba(0, 0, 0, 0.3);
+  background-color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.body};
   outline: none;
   :hover,
   :focus {
