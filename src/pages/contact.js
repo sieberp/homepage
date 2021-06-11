@@ -1,9 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import {
+  faLinkedin,
+  faGithub,
+  faTwitter,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import SEO from '../components/seo';
-import Text from '../components/styles/text';
+import TextStyles from '../components/styles/text';
 
 const StyledInput = styled.input`
   padding: 1rem;
@@ -81,7 +88,7 @@ const StyledButton = styled.button`
   font-size: 2rem;
   box-shadow: 1px 2px 7px 2px rgba(0, 0, 0, 0.3);
   background-color: #fdfdfd;
-  color: #333333;
+  color: ${({ theme }) => theme.text};
   outline: none;
   :hover,
   :focus {
@@ -91,6 +98,21 @@ const StyledButton = styled.button`
 
 const Wrapper = styled.main`
   padding: 0 1rem;
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 200px;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  a {
+    font-size: 2.5rem;
+    color: ${({ theme }) => theme.text};
+    :hover {
+      color: ${({ theme }) => theme.link_text};
+    }
+  }
 `;
 
 const Contact = () => {
@@ -142,51 +164,64 @@ const Contact = () => {
       />
       <Wrapper>
         <h1>CONTACT</h1>
-        <Text>
+        <TextStyles>
           <StyledForm>
-            <fieldset aria-disabled={status === 'sending' ? true : false}>
-              <StyledLabel htmlFor="email" className="email">
-                Your E-mail: <br />
-                <StyledInput
-                  type="email"
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={inputs.email}
-                  onChange={handleChange}
-                />
-              </StyledLabel>
-              <StyledLabel htmlFor="name" className="name">
-                Your Name: <br />
-                <StyledInput
-                  type="text"
-                  id="name"
-                  name="name"
-                  type="name"
-                  value={inputs.name}
-                  onChange={handleChange}
-                />
-              </StyledLabel>
-              <StyledLabel htmlFor="message" className="message">
-                Your message: <br />
-                <StyledTextarea
-                  id="message"
-                  name="message"
-                  value={inputs.message}
-                  onChange={handleChange}
-                />
-              </StyledLabel>
-              <StyledButton type="submit" onClick={sendMail}>
-                {buttonText}
-              </StyledButton>
-            </fieldset>
+            <StyledLabel htmlFor="email" className="email">
+              Your E-mail: <br />
+              <StyledInput
+                type="email"
+                id="email"
+                name="email"
+                type="email"
+                value={inputs.email}
+                onChange={handleChange}
+              />
+            </StyledLabel>
+            <StyledLabel htmlFor="name" className="name">
+              Your Name: <br />
+              <StyledInput
+                type="text"
+                id="name"
+                name="name"
+                type="name"
+                value={inputs.name}
+                onChange={handleChange}
+              />
+            </StyledLabel>
+            <StyledLabel htmlFor="message" className="message">
+              Your message: <br />
+              <StyledTextarea
+                id="message"
+                name="message"
+                value={inputs.message}
+                onChange={handleChange}
+              />
+            </StyledLabel>
+            <StyledButton type="submit" onClick={sendMail}>
+              {buttonText}
+            </StyledButton>
           </StyledForm>
           {status === 'error'
             ? 'There was an error. Please try again later.'
             : status === 'sent'
             ? 'Thank you for your message. We will be in contact with you shortly.'
             : ''}
-        </Text>
+          <p>Contact me on social media or use the form above.</p>
+          <SocialLinks>
+            <a href="https://github.com/holypoli">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a href="https://www.instagram.com/paul_sieber/">
+              <FontAwesomeIcon icon={faInstagram} />
+            </a>
+            <a href="https://www.linkedin.com/in/paul-sieber-b78180211/">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a href="https://twitter.com/holypoli93">
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+          </SocialLinks>
+        </TextStyles>
       </Wrapper>
     </>
   );
