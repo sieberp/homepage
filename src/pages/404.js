@@ -29,7 +29,7 @@ const NotFoundPage = () => (
   <StaticQuery
     query={graphql`
       query {
-        image: file(id: { eq: "1f92759e-63ae-5d9c-8fe8-1345bd542468" }) {
+        image: file(name: { eq: "13" }) {
           childImageSharp {
             fluid(maxWidth: 1000) {
               ...GatsbyImageSharpFluid
