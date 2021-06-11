@@ -6,12 +6,16 @@ url: https://www.haimerl.at
 technologies: ['wordpress', 'html', 'javascript', 'css']
 ---
 
-### Rebuilding of haimerl.at
+## Redesign of haimerl.at
 
-TODO: picture of landing page
+I was responsible for the implemantation of the new design for the onlineshop of the wineyard Haimerl. The main work was to implement a asynchronosly working shopping cart so the user can add, update and remove products.
+The website was already exsiting and was using WordPress as a CMS and running an onlineshop with Woocommerce. The design tweaks to the existing homepage were made using CSS. For the asyncronous shopping cart I used only basic JavaScript - importing a new libary would not have been necessary for this task.
 
-The wineyard Haimerl needed a redesign of there Homepage. The focus of the new website should be on there webshop and make it easier for customers to buy there products.
+---
 
-I was aproached by the designer to implement the design and deploy the newly built website. The redesign of the website was manly on the shop pages and making the cart work without refetching the whole page. There was already a running website built on wordpress, so the changes were implementet on the basis of the existing website.
+Used technologies:
 
-Contact me: link to contact
+- WordPress/WooCommerce
+- Html
+- CSS
+- JavaScript

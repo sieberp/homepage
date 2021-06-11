@@ -50,6 +50,20 @@ const BackStyles = styled(Link)`
   }
 `;
 
+const Content = styled.article`
+  p {
+    margin: 1rem 0;
+  }
+
+  ul {
+    list-style: none;
+    li:before {
+      content: 'ᐅ ';
+      color: ${({ theme }) => theme.link_text};
+    }
+  }
+`;
+
 export default function Template({ data }) {
   const { markdownRemark } = data;
   const { frontmatter, html } = markdownRemark;
@@ -77,7 +91,7 @@ export default function Template({ data }) {
           src={frontmatter.featuredImage.publicURL}
           alt={`Screenshot of the project for ${frontmatter.projectName}`}
         />
-        <div
+        <Content
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
         />
