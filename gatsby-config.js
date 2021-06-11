@@ -7,7 +7,7 @@ module.exports = {
     title: `Paul Sieber | Rower and Webdeveloper`,
     description: `Paul Sieber is an Olympic Rower and Web Developer who wants to help bring your ideas to life.`,
     author: `@holpoli93`,
-    main_color: `#C1DBE3`,
+    main_color: `#3991AC`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -52,25 +52,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `371430908`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Paul Siebers Personal Site`,
         short_name: `sieber.dev`,
         start_url: `/`,
-        background_color: `#C1DBE3`,
-        theme_color: `#C1DBE3`,
+        background_color: `#3991AC`,
+        theme_color: `#3991AC`,
         display: `minimal-ui`,
         icon: `assets/icon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
   ],
 };
