@@ -17,6 +17,7 @@ import styled from 'styled-components';
 const HeroImage = styled(Img)`
   max-height: 400px;
   margin-bottom: 2rem;
+  margin-top: 2rem;
 `;
 
 const Image = () => (

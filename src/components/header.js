@@ -20,7 +20,7 @@ const Inner = styled.div`
 const NavLink = styled(Link)`
   text-align: right;
   text-decoration: none;
-  color: ${props => props.theme.text};
+  color: ${({ theme }) => theme.text};
   font-size: 1.8rem;
   font-weight: bolder;
   margin: 10px;
@@ -67,16 +67,11 @@ const Logo = styled(LogoSVG)`
 
 const Header = () => {
   React.useEffect(() => {
-    if (
-      !window.location.pathname.startsWith('/web') &&
-      !window.location.pathname.startsWith('/rowing') &&
-      !window.location.pathname.startsWith('/contact')
-    ) {
-      return;
-    }
-    const activeLink = document.getElementById(
-      window.location.pathname.replaceAll('/', '')
-    );
+    let path = window.location.pathname.match(/\w+/);
+    if (!path) return;
+    if (path[0] === 'projects' || path[0] === 'about') path = 'web';
+
+    const activeLink = document.getElementById(path);
     activeLink.classList.add('active');
     return () => {
       activeLink.classList.remove('active');

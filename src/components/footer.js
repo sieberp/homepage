@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -15,27 +16,26 @@ const Container = styled.footer`
   color: ${props => props.theme.body};
   padding: 10px;
   font-size: 1.5rem;
+  & div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  & div div {
+    display: grid;
+    align-items: center;
+    grid-template-columns: max-content auto;
+  }
 `;
 
-const Inner = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  max-width: 960px;
-  margin: 0 auto;
-`;
-
-// const NavLink = styled(Link)`
-//   color: inherit;
-//   text-decoration: none;
-//   font-size: 1rem;
-//   text-align: right;
-// `;
-
-const Support = styled.div`
-  display: grid;
-  align-items: center;
-  grid-template-columns: max-content auto;
+const NavLink = styled(Link)`
+  color: #fdfdfd;
+  text-decoration: none;
+  font-size: 2rem;
+  text-align: right;
+  margin-bottom: 2rem;
 `;
 
 const BhLogo = styled(Bundesheer)`
@@ -47,19 +47,10 @@ const Footer = () => (
   <>
     <WaveSvg />
     <Container>
-      <Inner>
-        <Support>
-          Supported by{' '}
-          <a
-            href="http://www.bundesheer.at/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <BhLogo />
-          </a>
-        </Support>
-        {/* <NavLink to="/impressum">Impressum</NavLink> */}
-      </Inner>
+      <div>
+        <div />
+        <NavLink to="/about">About this page</NavLink>
+      </div>
     </Container>
   </>
 );

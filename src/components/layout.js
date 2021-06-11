@@ -23,6 +23,8 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.text};
     background: ${({ theme }) => theme.body};
     scroll-behavior: smooth;
+    transition: background 0.3s;
+    transition: all 0.7s;
   }
 `;
 
@@ -33,11 +35,22 @@ const MainContent = styled.div`
   padding-top: 0;
 `;
 
+const ThemeSwitch = styled.button`
+  position: fixed;
+  right: 2rem;
+  bottom: 4rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid ${({ theme }) => theme.body};
+`;
+
 const Layout = ({ children, location }) => {
-  const [theme] = React.useState('light');
-  // const themeToggler = () => {
-  //   theme === 'light' ? setTheme('dark') : setTheme('light');
-  // };
+  // const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = React.useState('light');
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
   return (
     <StaticQuery
       query={graphql`
@@ -54,6 +67,9 @@ const Layout = ({ children, location }) => {
           <>
             <GlobalStyle />
             <Header />
+            <ThemeSwitch onClick={themeToggler}>
+              Switch to {theme === 'light' ? 'dark' : 'light'} theme
+            </ThemeSwitch>
             <Transtion location={location}>
               <MainContent>{children}</MainContent>
             </Transtion>
