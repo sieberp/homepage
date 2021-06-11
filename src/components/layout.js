@@ -43,6 +43,8 @@ const ThemeSwitch = styled.button`
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   border: 1px solid ${({ theme }) => theme.body};
+  background-color: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
 `;
 
 const Layout = ({ children, location }) => {
