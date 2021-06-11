@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 10px;
     line-height: 1.5;
   }
-  *, *:before, *:after { box-sizing: inherit; margin: 0; padding: 0; }
+  *, *:before, *:after { box-sizing: inherit; margin: 0; padding: 0; border: none}
   body {
     margin: 0;
     font-family: 'Varela Round', 'Times new Roman', sans-serif;
@@ -38,7 +38,7 @@ const MainContent = styled.div`
 const ThemeSwitch = styled.button`
   position: fixed;
   right: 2rem;
-  bottom: 4rem;
+  bottom: 6rem;
   font-size: 1.6rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -49,10 +49,20 @@ const ThemeSwitch = styled.button`
 
 const Layout = ({ children, location }) => {
   // const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  // const savedTheme = localStorage.getItem('theme-color-mode');
   const [theme, setTheme] = React.useState('light');
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
+
+  React.useEffect(() => {
+    setTheme(localStorage.getItem('theme-color-mode'));
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('theme-color-mode', theme);
+  }, [theme]);
+
   return (
     <StaticQuery
       query={graphql`

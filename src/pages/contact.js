@@ -80,8 +80,8 @@ const StyledButton = styled.button`
   border: 1px solid #333;
   font-size: 2rem;
   box-shadow: 1px 2px 7px 2px rgba(0, 0, 0, 0.3);
-  background-color: ${({ theme }) => theme.text};
-  color: ${({ theme }) => theme.body};
+  background-color: #fdfdfd;
+  color: #333333;
   outline: none;
   :hover,
   :focus {
@@ -111,10 +111,8 @@ const Contact = () => {
 
   const sendMail = async event => {
     event.preventDefault();
-    console.log(inputs);
     setButtonText('Sending...');
     setStatus('sending');
-    console.log(axios.defaults);
     await axios
       .post('/.netlify/functions/send-contact-email', {
         contactName: inputs.name,
@@ -146,38 +144,42 @@ const Contact = () => {
         <h1>CONTACT</h1>
         <Text>
           <StyledForm>
-            <StyledLabel htmlFor="email" className="email">
-              Your E-mail: <br />
-              <StyledInput
-                type="email"
-                id="email"
-                name="email"
-                value={inputs.email}
-                onChange={handleChange}
-              />
-            </StyledLabel>
-            <StyledLabel htmlFor="name" className="name">
-              Your Name: <br />
-              <StyledInput
-                type="text"
-                id="name"
-                name="name"
-                value={inputs.name}
-                onChange={handleChange}
-              />
-            </StyledLabel>
-            <StyledLabel htmlFor="message" className="message">
-              Your message: <br />
-              <StyledTextarea
-                id="message"
-                name="message"
-                value={inputs.message}
-                onChange={handleChange}
-              />
-            </StyledLabel>
-            <StyledButton type="submit" onClick={sendMail}>
-              {buttonText}
-            </StyledButton>
+            <fieldset aria-disabled={status === 'sending' ? true : false}>
+              <StyledLabel htmlFor="email" className="email">
+                Your E-mail: <br />
+                <StyledInput
+                  type="email"
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={inputs.email}
+                  onChange={handleChange}
+                />
+              </StyledLabel>
+              <StyledLabel htmlFor="name" className="name">
+                Your Name: <br />
+                <StyledInput
+                  type="text"
+                  id="name"
+                  name="name"
+                  type="name"
+                  value={inputs.name}
+                  onChange={handleChange}
+                />
+              </StyledLabel>
+              <StyledLabel htmlFor="message" className="message">
+                Your message: <br />
+                <StyledTextarea
+                  id="message"
+                  name="message"
+                  value={inputs.message}
+                  onChange={handleChange}
+                />
+              </StyledLabel>
+              <StyledButton type="submit" onClick={sendMail}>
+                {buttonText}
+              </StyledButton>
+            </fieldset>
           </StyledForm>
           {status === 'error'
             ? 'There was an error. Please try again later.'

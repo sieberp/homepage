@@ -35,6 +35,7 @@ const ProjectStyles = styled.li`
   img {
     display: block;
     height: 100%;
+    object-fit: cover;
     border-radius: inherit;
     margin: 0 auto;
     transition: all 0.4s ease-in-out;

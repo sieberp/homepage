@@ -68,7 +68,6 @@ const Logo = styled(LogoSVG)`
 const Header = () => {
   React.useEffect(() => {
     let path = window.location.pathname.match(/\w+/);
-    console.log(path);
     if (!path || path[0] === '404') return;
     if (path[0] === 'projects' || path[0] === 'about') path = 'web';
 
