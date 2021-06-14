@@ -88,7 +88,7 @@ const StyledButton = styled.button`
   font-size: 2rem;
   box-shadow: 1px 2px 7px 2px rgba(0, 0, 0, 0.3);
   background-color: #fdfdfd;
-  color: ${({ theme }) => theme.text};
+  color: #333333;
   outline: none;
   :hover,
   :focus {
