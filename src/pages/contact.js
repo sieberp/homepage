@@ -73,9 +73,9 @@ const StyledLabel = styled.label`
   &.message {
     grid-area: mes;
   }
-  /* @media screen and (max-width: 500px) {
+  @media screen and (max-width: 500px) {
     width: 100%;
-  } */
+  }
 `;
 
 const StyledButton = styled.button`
@@ -172,7 +172,6 @@ const Contact = () => {
                 type="email"
                 id="email"
                 name="email"
-                type="email"
                 value={inputs.email}
                 onChange={handleChange}
               />
@@ -183,7 +182,6 @@ const Contact = () => {
                 type="text"
                 id="name"
                 name="name"
-                type="name"
                 value={inputs.name}
                 onChange={handleChange}
               />

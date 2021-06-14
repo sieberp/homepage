@@ -42,9 +42,11 @@ const ThemeSwitch = styled.button`
   font-size: 1.6rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
-  border: 1px solid ${({ theme }) => theme.body};
+  border: 1px solid ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
+  box-shadow: 1px 2px 7px 2px rgb(0 0 0 / 30%);
+  z-index: 10;
 `;
 
 const Layout = ({ children, location }) => {

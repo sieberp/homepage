@@ -38,11 +38,6 @@ const NavLink = styled(Link)`
   margin-bottom: 2rem;
 `;
 
-const BhLogo = styled(Bundesheer)`
-  width: 48px;
-  height: 48px;
-`;
-
 const Footer = () => (
   <>
     <WaveSvg />
