@@ -2,7 +2,7 @@
 slug: '/projects/digitalarchitects'
 projectName: 'Digital Architects'
 featuredImage: './DigitalArchitects.jpg'
-url: https://www.digitalarchitects.at
+url: https://www.digitalarchitects.netlify.app
 technologies: ['gatsby', 'react', 'css', 'html']
 ---
 
