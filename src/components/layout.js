@@ -47,18 +47,25 @@ const ThemeSwitch = styled.button`
   color: ${({ theme }) => theme.text};
   box-shadow: 1px 2px 7px 2px rgb(0 0 0 / 30%);
   z-index: 10;
+  transition: all 0.2 ease-in-out;
+  cursor: pointer;
+  :hover {
+    box-shadow: none;
+  }
 `;
 
 const Layout = ({ children, location }) => {
   // const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   // const savedTheme = localStorage.getItem('theme-color-mode');
   const [theme, setTheme] = React.useState('light');
+  console.log(theme);
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
   };
 
   React.useEffect(() => {
-    setTheme(localStorage.getItem('theme-color-mode'));
+    const theme = localStorage.getItem('theme-color-mode');
+    if (theme) setTheme(theme);
   }, []);
 
   React.useEffect(() => {
